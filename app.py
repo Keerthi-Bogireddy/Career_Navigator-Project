@@ -1,0 +1,79 @@
+from flask import Flask, render_template, request
+import pandas as pd
+import joblib
+
+app = Flask(__name__)
+
+# Load the trained model
+def load_model():
+    model = joblib.load('model.pkl')  # Path to your model.pkl file
+    return model
+
+# Home route
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+# Predictor route - Form for user input
+@app.route('/predictor', methods=['GET', 'POST'])
+def predictor():
+    if request.method == 'POST':
+        # Collecting form data
+        user_data = request.form
+        age = int(user_data['age'])
+        education_level = user_data['education_level']
+        cgpa = float(user_data['cgpa'])
+        math_score = int(user_data['math_score'])
+        physics_score = int(user_data['physics_score'])
+        biology_score = int(user_data['biology_score'])
+        history_score = int(user_data['history_score'])
+        openness = int(user_data['openness'])
+        conscientiousness = int(user_data['conscientiousness'])
+        extraversion = int(user_data['extraversion'])
+        agreeableness = int(user_data['agreeableness'])
+        neuroticism = int(user_data['neuroticism'])
+        weekly_self_study_hours = int(user_data['weekly_self_study_hours'])
+        extracurricular_activities = int(user_data['extracurricular_activities'])
+        hobbies = user_data.getlist('hobbies[]')
+        interests = user_data['interests']
+        budget = float(user_data['budget'])
+        career_demand_score = int(user_data['career_demand_score'])
+        
+
+        # Creating a DataFrame with the input data
+        input_data = pd.DataFrame([{
+            'age': age,
+            'education_level': education_level,
+            'cgpa': cgpa,
+            'math_score': math_score,
+            'physics_score': physics_score,
+            'biology_score': biology_score,
+            'history_score': history_score,
+            'openness': openness,
+            'conscientiousness': conscientiousness,
+            'extraversion': extraversion,
+            'agreeableness': agreeableness,
+            'neuroticism': neuroticism,
+            'weekly_self_study_hours': weekly_self_study_hours,
+            'extracurricular_activities' : extracurricular_activities,
+            'hobbies': ', '.join(hobbies),  # Convert list of hobbies into a string
+            'interests': interests,
+            'budget': budget,
+            'career_demand_score': career_demand_score           
+            
+        }])
+
+        # Load the model
+        model = load_model()
+        # app.logger.info(input_data)
+        # Make prediction
+        prediction = model.predict(input_data)
+
+        # Return result page with prediction
+        return render_template('results.html', career=prediction[0])
+
+    return render_template('predictor.html')
+
+# Run the app
+if __name__ == '__main__':
+    app.run(debug=True)

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        .card-body {
+            padding: 40px;
+        }
+        .btn {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body text-center">
+                <h2 class="mb-4">Your Recommended Career Path</h2>
+                <h3 class="text-primary mb-4">{{ career }}</h3>
+                <p class="lead">Based on your responses, we recommend the following career path. Explore further and make informed decisions.</p>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to Home</a>
+                <a href="{{ url_for('predictor') }}" class="btn btn-primary mt-3">Try Again</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
