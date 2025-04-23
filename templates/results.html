@@ -31,11 +31,11 @@
 
     <!-- Results Section -->
     <div class="container">
-        <div class="card text-center">
+        <div class="card">
             <h2>Your Recommended Career Path</h2>
             <h3 class="career-result">{{ career }}</h3>
-            <p class="lead">Based on your responses, we recommend pursuing a career in <strong>{{ career }}</strong>. Explore further and make informed decisions to shape your future.</p>
-            <div class="d-flex justify-content-center">
+            <p class="lead">Based on your unique profile, we recommend a career in <strong>{{ career }}</strong>. Take the next step to explore this path and shape your future!</p>
+            <div class="d-flex justify-content-center gap-3">
                 <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
                 <a href="{{ url_for('predictor') }}" class="btn btn-primary">Try Again</a>
             </div>
