@@ -1,0 +1,153 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 800px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.btn-primary {
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    transition: transform 0.2s, background-color 0.2s;
+    margin: 0.5rem;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    background-color: #5a6268;
+}
+
+/* Index Page */
+.bg-image {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    transition: background-image 1s ease-in-out;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+.content {
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+    max-width: 700px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: #007BFF;
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Predictor Form */
+.form-section {
+    display: none;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-section.active {
+    display: block;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.form-check-inline {
+    margin-right: 1rem;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.range-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+/* Results Page */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.card h2 {
+    color: #007BFF;
+    font-weight: 600;
+}
+
+.career-result {
+    font-size: 2rem;
+    color: #17A2B8;
+    margin-bottom: 1.5rem;
+}
