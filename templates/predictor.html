@@ -32,18 +32,23 @@
     <!-- Form Section -->
     <div class="container">
         <h1 class="text-center mb-4">Career Predictor</h1>
-        <form method="POST" action="/predictor" id="careerForm">
+        <div class="progress-container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" id="progressBar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+        <form method="POST" action="/predictor" id="careerForm" aria-label="Career Predictor Form">
             <!-- Personal Information -->
             <div class="form-section active" id="personal">
                 <h3>Personal Information</h3>
                 <div class="mb-3">
-                    <label class="form-label">Age <span class="range-label">(15-100)</span></label>
-                    <input type="number" name="age" class="form-control" placeholder="Enter your age" required>
+                    <label class="form-label" for="age">Age <span class="range-label">(15-100)</span></label>
+                    <input type="number" name="age" id="age" class="form-control" placeholder="Enter your age" required aria-describedby="age-error">
                     <div class="error-message" id="age-error">Please enter a valid age between 15 and 100.</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Education Level</label>
-                    <select name="education_level" class="form-select" required>
+                    <label class="form-label" for="education_level">Education Level</label>
+                    <select name="education_level" id="education_level" class="form-select" required aria-describedby="education_level-error">
                         <option value="">Select Education Level</option>
                         <option value="Grade 10">Grade 10</option>
                         <option value="Grade 11">Grade 11</option>
@@ -62,28 +67,28 @@
             <div class="form-section" id="academic">
                 <h3>Academic Performance</h3>
                 <div class="mb-3">
-                    <label class="form-label">CGPA <span class="range-label">(0.0-10.0)</span></label>
-                    <input type="number" step="0.01" name="cgpa" class="form-control" placeholder="Enter your CGPA" required>
+                    <label class="form-label" for="cgpa">CGPA <span class="range-label">(0.0-10.0)</span></label>
+                    <input type="number" step="0.01" name="cgpa" id="cgpa" class="form-control" placeholder="Enter your CGPA" required aria-describedby="cgpa-error">
                     <div class="error-message" id="cgpa-error">Please enter a valid CGPA between 0.0 and 10.0.</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Math Score <span class="range-label">(0-100)</span></label>
-                    <input type="number" name="math_score" class="form-control" placeholder="Enter your math score" required>
+                    <label class="form-label" for="math_score">Math Score <span class="range-label">(0-100)</span></label>
+                    <input type="number" name="math_score" id="math_score" class="form-control" placeholder="Enter your math score" required aria-describedby="math_score-error">
                     <div class="error-message" id="math_score-error">Please enter a valid score between 0 and 100.</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Physics Score <span class="range-label">(0-100)</span></label>
-                    <input type="number" name="physics_score" class="form-control" placeholder="Enter your physics score" required>
+                    <label class="form-label" for="physics_score">Physics Score <span class="range-label">(0-100)</span></label>
+                    <input type="number" name="physics_score" id="physics_score" class="form-control" placeholder="Enter your physics score" required aria-describedby="physics_score-error">
                     <div class="error-message" id="physics_score-error">Please enter a valid score between 0 and 100.</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Biology Score <span class="range-label">(0-100)</span></label>
-                    <input type="number" name="biology_score" class="form-control" placeholder="Enter your biology score" required>
+                    <label class="form-label" for="biology_score">Biology Score <span class="range-label">(0-100)</span></label>
+                    <input type="number" name="biology_score" id="biology_score" class="form-control" placeholder="Enter your biology score" required aria-describedby="biology_score-error">
                     <div class="error-message" id="biology_score-error">Please enter a valid score between 0 and 100.</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">History Score <span class="range-label">(0-100)</span></label>
-                    <input type="number" name="history_score" class="form-control" placeholder="Enter your history score" required>
+                    <label class="form-label" for="history_score">History Score <span class="range-label">(0-100)</span></label>
+                    <input type="number" name="history_score" id="history_score" class="form-control" placeholder="Enter your history score" required aria-describedby="history_score-error">
                     <div class="error-message" id="history_score-error">Please enter a valid score between 0 and 100.</div>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -96,28 +101,28 @@
             <div class="form-section" id="personality">
                 <h3>Personality Traits</h3>
                 <div class="mb-3">
-                    <label class="form-label">Openness <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="openness" class="form-control" placeholder="Rate openness" required>
+                    <label class="form-label" for="openness">Openness <span class="range-label">(1-10)</span></label>
+                    <input type="number" name="openness" id="openness" class="form-control" placeholder="Rate openness" required aria-describedby="openness-error">
                     <div class="error-message" id="openness-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Conscientiousness <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="conscientiousness" class="form-control" placeholder="Rate conscientiousness" required>
+                    <label class="form-label" for="conscientiousness">Conscientiousness <span class="range-label">(1-10)</span></label>
+                    <input type="number" name="conscientiousness" id="conscientiousness" class="form-control" placeholder="Rate conscientiousness" required aria-describedby="conscientiousness-error">
                     <div class="error-message" id="conscientiousness-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Extraversion <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="extraversion" class="form-control" placeholder="Rate extraversion" required>
+                    <label class="form-label" for="extraversion">Extraversion <span class="range-label">(1-10)</span></label>
+                    <input type="number" name="extraversion" id="extraversion" class="form-control" placeholder="Rate extraversion" required aria-describedby="extraversion-error">
                     <div class="error-message" id="extraversion-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Agreeableness <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="agreeableness" class="form-control" placeholder="Rate agreeableness" required>
+                    <label class="form-label" for="agreeableness">Agreeableness <span class="range-label">(1-10)</span></label>
+                    <input type="number" name="agreeableness" id="agreeableness" class="form-control" placeholder="Rate agreeableness" required aria-describedby="agreeableness-error">
                     <div class="error-message" id="agreeableness-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Neuroticism <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="neuroticism" class="form-control" placeholder="Rate neuroticism" required>
+                    <label class="form-label" for="neuroticism">Neuroticism <span class="range-label">(1-10)</span></label>
+                    <input type="number" name="neuroticism" id="neuroticism" class="form-control" placeholder="Rate neuroticism" required aria-describedby="neuroticism-error">
                     <div class="error-message" id="neuroticism-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -130,8 +135,8 @@
             <div class="form-section" id="study">
                 <h3>Study Habits</h3>
                 <div class="mb-3">
-                    <label class="form-label">Weekly Self-Study Hours <span class="range-label">(0-168)</span></label>
-                    <input type="number" name="weekly_self_study_hours" class="form-control" placeholder="Enter hours spent on self-study per week" required>
+                    <label class="form-label" for="weekly_self_study_hours">Weekly Self-Study Hours <span class="range-label">(0-168)</span></label>
+                    <input type="number" name="weekly_self_study_hours" id="weekly_self_study_hours" class="form-control" placeholder="Enter hours spent on self-study per week" required aria-describedby="weekly_self_study_hours-error">
                     <div class="error-message" id="weekly_self_study_hours-error">Please enter a valid number between 0 and 168.</div>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -144,8 +149,8 @@
             <div class="form-section" id="extracurricular">
                 <h3>Extracurricular Activities</h3>
                 <div class="mb-3">
-                    <label class="form-label">Participate in Extracurricular Activities?</label>
-                    <select name="extracurricular_activities" class="form-select" required>
+                    <label class="form-label" for="extracurricular_activities">Participate in Extracurricular Activities?</label>
+                    <select name="extracurricular_activities" id="extracurricular_activities" class="form-select" required aria-describedby="extracurricular_activities-error">
                         <option value="">Select Yes/No</option>
                         <option value="0">No</option>
                         <option value="1">Yes</option>
@@ -163,38 +168,38 @@
                 <h3>Hobbies</h3>
                 <div class="mb-3">
                     <label class="form-label">Select your hobbies (at least one):</label>
-                    <div>
+                    <div role="group" aria-labelledby="hobbies-label" aria-describedby="hobbies-error">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="hobbies[]" value="coding">
-                            <label class="form-check-label">Coding</label>
+                            <input class="form-check-input" type="checkbox" name="hobbies[]" id="hobby-coding" value="coding">
+                            <label class="form-check-label" for="hobby-coding">Coding</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="hobbies[]" value="cooking">
-                            <label class="form-check-label">Cooking</label>
+                            <input class="form-check-input" type="checkbox" name="hobbies[]" id="hobby-cooking" value="cooking">
+                            <label class="form-check-label" for="hobby-cooking">Cooking</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="hobbies[]" value="dance">
-                            <label class="form-check-label">Dance</label>
+                            <input class="form-check-input" type="checkbox" name="hobbies[]" id="hobby-dance" value="dance">
+                            <label class="form-check-label" for="hobby-dance">Dance</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="hobbies[]" value="finance">
-                            <label class="form-check-label">Finance</label>
+                            <input class="form-check-input" type="checkbox" name="hobbies[]" id="hobby-finance" value="finance">
+                            <label class="form-check-label" for="hobby-finance">Finance</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="hobbies[]" value="gaming">
-                            <label class="form-check-label">Gaming</label>
+                            <input class="form-check-input" type="checkbox" name="hobbies[]" id="hobby-gaming" value="gaming">
+                            <label class="form-check-label" for="hobby-gaming">Gaming</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="hobbies[]" value="music">
-                            <label class="form-check-label">Music</label>
+                            <input class="form-check-input" type="checkbox" name="hobbies[]" id="hobby-music" value="music">
+                            <label class="form-check-label" for="hobby-music">Music</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="hobbies[]" value="painting">
-                            <label class="form-check-label">Painting</label>
+                            <input class="form-check-input" type="checkbox" name="hobbies[]" id="hobby-painting" value="painting">
+                            <label class="form-check-label" for="hobby-painting">Painting</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="hobbies[]" value="reading">
-                            <label class="form-check-label">Reading</label>
+                            <input class="form-check-input" type="checkbox" name="hobbies[]" id="hobby-reading" value="reading">
+                            <label class="form-check-label" for="hobby-reading">Reading</label>
                         </div>
                     </div>
                     <div class="error-message" id="hobbies-error">Please select at least one hobby.</div>
@@ -209,8 +214,8 @@
             <div class="form-section" id="interests">
                 <h3>Interests</h3>
                 <div class="mb-3">
-                    <label class="form-label">Select your primary interest:</label>
-                    <select name="interests" class="form-select" required>
+                    <label class="form-label" for="interests">Select your primary interest:</label>
+                    <select name="interests" id="interests" class="form-select" required aria-describedby="interests-error">
                         <option value="">Select an interest</option>
                         <option value="arts">Arts</option>
                         <option value="business">Business</option>
@@ -229,13 +234,13 @@
             <div class="form-section" id="financial">
                 <h3>Financial Information</h3>
                 <div class="mb-3">
-                    <label class="form-label">Budget (in INR) <span class="range-label">(0-1,000,000)</span></label>
-                    <input type="number" name="budget" class="form-control" placeholder="Enter your education budget" required>
+                    <label class="form-label" for="budget">Budget (in INR) <span class="range-label">(0-1,000,000)</span></label>
+                    <input type="number" name="budget" id="budget" class="form-control" placeholder="Enter your education budget" required aria-describedby="budget-error">
                     <div class="error-message" id="budget-error">Please enter a valid budget between 0 and 1,000,000.</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Career Demand Score <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="career_demand_score" class="form-control" placeholder="Rate demand for your preferred career" required>
+                    <label class="form-label" for="career_demand_score">Career Demand Score <span class="range-label">(1-10)</span></label>
+                    <input type="number" name="career_demand_score" id="career_demand_score" class="form-control" placeholder="Rate demand for your preferred career" required aria-describedby="career_demand_score-error">
                     <div class="error-message" id="career_demand_score-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -258,11 +263,13 @@
         // Section navigation
         const sections = ['personal', 'academic', 'personality', 'study', 'extracurricular', 'hobbies', 'interests', 'financial'];
         let currentSectionIndex = 0;
+        const totalSections = sections.length;
 
         function showSection(index) {
             document.querySelectorAll('.form-section').forEach(section => section.classList.remove('active'));
             document.getElementById(sections[index]).classList.add('active');
             currentSectionIndex = index;
+            updateProgressBar();
         }
 
         function nextSection(current) {
@@ -275,6 +282,13 @@
 
         function prevSection(current) {
             showSection(currentSectionIndex - 1);
+        }
+
+        function updateProgressBar() {
+            const progress = ((currentSectionIndex + 1) / totalSections) * 100;
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = `${progress}%`;
+            progressBar.setAttribute('aria-valuenow', progress);
         }
 
         // Validation functions

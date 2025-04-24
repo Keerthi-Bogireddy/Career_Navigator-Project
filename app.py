@@ -14,6 +14,10 @@ def load_model_and_preprocessors():
 def index():
     return render_template('index.html')
 
+@app.route('/careers')
+def careers():
+    return render_template('careers.html')
+
 # Predictor route - Form for user input
 @app.route('/predictor', methods=['GET', 'POST'])
 def predictor():

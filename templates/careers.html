@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Navigator - Careers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Career Navigator</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('predictor') }}">Predictor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('careers') }}">Careers</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Careers Section -->
+    <section class="careers-section">
+        <div class="container">
+            <h1 class="text-center mb-3">Explore Career Options in India</h1>
+            <p class="text-center mb-5 mx-auto">Click a career card to uncover a world of mainstream and unique paths, with curated steps and resources.</p>
+            <div class="row g-4" role="list" aria-label="List of career options">
+                <!-- Data Scientist -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Data Scientist"
+                        data-career-icon="fa-chart-line"
+                        data-career-description="Analyze complex datasets to uncover insights and drive business decisions."
+                        data-career-paths="<li>Earn a degree in Data Science, Statistics, or Computer Science.</li><li>Master tools like Python, R, and SQL.</li><li>Complete certifications in data analytics.</li><li>Gain experience through internships or projects.</li>"
+                        data-career-resources="<li><a href='https://www.coursera.org/learn/data-science' target='_blank' rel='noopener' aria-label='Coursera Data Science Course'><i class='fas fa-external-link-alt'></i> Coursera: Data Science</a></li><li><a href='https://unacademy.com' target='_blank' rel='noopener' aria-label='Unacademy Data Science Courses'><i class='fas fa-external-link-alt'></i> Unacademy: Data Science Courses</a></li>">
+                        <i class="fas fa-chart-line career-icon"></i>
+                        <h3>Data Scientist</h3>
+                        <p>Analyze complex datasets...</p>
+                    </article>
+                </div>
+                <!-- Software Engineer -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Software Engineer"
+                        data-career-icon="fa-laptop-code"
+                        data-career-description="Design and develop software applications and systems."
+                        data-career-paths="<li>B.Tech/B.E. in Computer Science or IT.</li><li>Learn programming (Python, Java, C++).</li><li>Build a portfolio on GitHub.</li><li>Secure internships or entry-level roles.</li>"
+                        data-career-resources="<li><a href='https://www.freecodecamp.org' target='_blank' rel='noopener' aria-label='freeCodeCamp Coding Tutorials'><i class='fas fa-external-link-alt'></i> freeCodeCamp</a></li><li><a href='https://byjus.com/coding-for-kids/' target='_blank' rel='noopener' aria-label='BYJU’S Coding Courses'><i class='fas fa-external-link-alt'></i> BYJU’S: Coding Courses</a></li>">
+                        <i class="fas fa-laptop-code career-icon"></i>
+                        <h3>Software Engineer</h3>
+                        <p>Design and develop software...</p>
+                    </article>
+                </div>
+                <!-- Doctor -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Doctor"
+                        data-career-icon="fa-user-doctor"
+                        data-career-description="Diagnose and treat patients to improve health outcomes."
+                        data-career-paths="<li>Complete MBBS after 12th Science.</li><li>Pass NEET or equivalent exams.</li><li>Pursue MD/MS for specialization.</li><li>Gain experience through residency.</li>"
+                        data-career-resources="<li><a href='https://www.aakash.ac.in/neet-coaching' target='_blank' rel='noopener' aria-label='Aakash NEET Coaching'><i class='fas fa-external-link-alt'></i> Aakash: NEET Coaching</a></li><li><a href='https://www.khanacademy.org/science/health-and-medicine' target='_blank' rel='noopener' aria-label='Khan Academy Health and Medicine'><i class='fas fa-external-link-alt'></i> Khan Academy: Health</a></li>">
+                        <i class="fas fa-user-doctor career-icon"></i>
+                        <h3>Doctor</h3>
+                        <p>Diagnose and treat patients...</p>
+                    </article>
+                </div>
+                <!-- Digital Marketer -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Digital Marketer"
+                        data-career-icon="fa-bullhorn"
+                        data-career-description="Promote brands and products through online channels."
+                        data-career-paths="<li>Degree in Marketing or Communications.</li><li>Learn SEO, SEM, and social media marketing.</li><li>Obtain certifications from Google or HubSpot.</li><li>Work on freelance or agency projects.</li>"
+                        data-career-resources="<li><a href='https://www.upgrad.com/digital-marketing-and-communication-pgc/' target='_blank' rel='noopener' aria-label='upGrad Digital Marketing Program'><i class='fas fa-external-link-alt'></i> upGrad: Digital Marketing</a></li><li><a href='https://skillshare.com' target='_blank' rel='noopener' aria-label='Skillshare Marketing Courses'><i class='fas fa-external-link-alt'></i> Skillshare: Marketing Courses</a></li>">
+                        <i class="fas fa-bullhorn career-icon"></i>
+                        <h3>Digital Marketer</h3>
+                        <p>Promote brands and products...</p>
+                    </article>
+                </div>
+                <!-- AI/ML Engineer -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="AI/ML Engineer"
+                        data-career-icon="fa-robot"
+                        data-career-description="Build intelligent algorithms for automation and decision-making."
+                        data-career-paths="<li>B.Tech in Computer Science or IT.</li><li>Learn Python, TensorFlow, and PyTorch.</li><li>Complete AI/ML certifications.</li><li>Contribute to open-source AI projects.</li>"
+                        data-career-resources="<li><a href='https://www.guvi.in/courses/machine-learning' target='_blank' rel='noopener' aria-label='GUVI Machine Learning Courses'><i class='fas fa-external-link-alt'></i> GUVI: Machine Learning</a></li><li><a href='https://www.coursera.org/learn/ai' target='_blank' rel='noopener' aria-label='Coursera AI Courses'><i class='fas fa-external-link-alt'></i> Coursera: AI Courses</a></li>">
+                        <i class="fas fa-robot career-icon"></i>
+                        <h3>AI/ML Engineer</h3>
+                        <p>Build intelligent algorithms...</p>
+                    </article>
+                </div>
+                <!-- Cloud Architect -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Cloud Architect"
+                        data-career-icon="fa-cloud"
+                        data-career-description="Design and manage cloud-based systems for organizations."
+                        data-career-paths="<li>Degree in IT or Computer Science.</li><li>Learn AWS, Azure, or Google Cloud.</li><li>Earn cloud certifications.</li><li>Gain experience in system administration.</li>"
+                        data-career-resources="<li><a href='https://www.networkkings.org/cloud-computing-courses/' target='_blank' rel='noopener' aria-label='Network Kings Cloud Computing Courses'><i class='fas fa-external-link-alt'></i> Network Kings: Cloud</a></li><li><a href='https://aws.amazon.com/training/' target='_blank' rel='noopener' aria-label='AWS Training'><i class='fas fa-external-link-alt'></i> AWS Training</a></li>">
+                        <i class="fas fa-cloud career-icon"></i>
+                        <h3>Cloud Architect</h3>
+                        <p>Design and manage cloud-based...</p>
+                    </article>
+                </div>
+                <!-- Financial Manager -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Financial Manager"
+                        data-career-icon="fa-sack-dollar"
+                        data-career-description="Oversee corporate finances and investment plans."
+                        data-career-paths="<li>B.Com or MBA in Finance.</li><li>Learn financial modeling and accounting.</li><li>Pursue CFA or CPA certifications.</li><li>Start in banking or finance roles.</li>"
+                        data-career-resources="<li><a href='https://www.cfainstitute.org' target='_blank' rel='noopener' aria-label='CFA Institute'><i class='fas fa-external-link-alt'></i> CFA Institute</a></li><li><a href='https://unacademy.com' target='_blank' rel='noopener' aria-label='Unacademy Finance Courses'><i class='fas fa-external-link-alt'></i> Unacademy: Finance Courses</a></li>">
+                        <i class="fas fa-sack-dollar career-icon"></i>
+                        <h3>Financial Manager</h3>
+                        <p>Oversee corporate finances...</p>
+                    </article>
+                </div>
+                <!-- Lawyer -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Lawyer"
+                        data-career-icon="fa-gavel"
+                        data-career-description="Provide legal advice and represent clients in court."
+                        data-career-paths="<li>Complete LLB after 12th or graduation.</li><li>Pass the CLAT or AILET exams.</li><li>Specialize in corporate, criminal, or tax law.</li><li>Join a law firm or practice independently.</li>"
+                        data-career-resources="<li><a href='https://www.lawctopus.com' target='_blank' rel='noopener' aria-label='Lawctopus Legal Resources'><i class='fas fa-external-link-alt'></i> Lawctopus: Legal Resources</a></li><li><a href='https://www.coursera.org/learn/law' target='_blank' rel='noopener' aria-label='Coursera Law Courses'><i class='fas fa-external-link-alt'></i> Coursera: Law Courses</a></li>">
+                        <i class="fas fa-gavel career-icon"></i>
+                        <h3>Lawyer</h3>
+                        <p>Provide legal advice...</p>
+                    </article>
+                </div>
+                <!-- Product Manager -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Product Manager"
+                        data-career-icon="fa-box-open"
+                        data-career-description="Oversee product development from ideation to launch."
+                        data-career-paths="<li>MBA or degree in Business/Engineering.</li><li>Learn Agile and Scrum methodologies.</li><li>Gain experience in marketing or tech.</li><li>Lead cross-functional teams.</li>"
+                        data-career-resources="<li><a href='https://www.productschool.com' target='_blank' rel='noopener' aria-label='Product School'><i class='fas fa-external-link-alt'></i> Product School</a></li><li><a href='https://www.upgrad.com/product-management/' target='_blank' rel='noopener' aria-label='upGrad Product Management Program'><i class='fas fa-external-link-alt'></i> upGrad: Product Management</a></li>">
+                        <i class="fas fa-box-open career-icon"></i>
+                        <h3>Product Manager</h3>
+                        <p>Oversee product development...</p>
+                    </article>
+                </div>
+                <!-- Cybersecurity Engineer -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Cybersecurity Engineer"
+                        data-career-icon="fa-shield-alt"
+                        data-career-description="Protect systems from cyber threats and vulnerabilities."
+                        data-career-paths="<li>Degree in IT or Cybersecurity.</li><li>Learn ethical hacking and cryptography.</li><li>Earn CEH or CISSP certifications.</li><li>Work in security operations.</li>"
+                        data-career-resources="<li><a href='https://www.eccouncil.org' target='_blank' rel='noopener' aria-label='EC-Council CEH Certification'><i class='fas fa-external-link-alt'></i> EC-Council: CEH</a></li><li><a href='https://www.simplilearn.com/cyber-security/' target='_blank' rel='noopener' aria-label='Simplilearn Cybersecurity Courses'><i class='fas fa-external-link-alt'></i> Simplilearn: Cybersecurity</a></li>">
+                        <i class="fas fa-shield-alt career-icon"></i>
+                        <h3>Cybersecurity Engineer</h3>
+                        <p>Protect systems from cyber...</p>
+                    </article>
+                </div>
+                <!-- Teacher -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Teacher"
+                        data-career-icon="fa-chalkboard-teacher"
+                        data-career-description="Educate and inspire students across various subjects."
+                        data-career-paths="<li>B.Ed or degree in Education.</li><li>Pass CTET or state TET exams.</li><li>Gain classroom experience.</li><li>Pursue advanced degrees for higher roles.</li>"
+                        data-career-resources="<li><a href='https://www.teach.org' target='_blank' rel='noopener' aria-label='Teach.org Resources'><i class='fas fa-external-link-alt'></i> Teach.org</a></li><li><a href='https://www.edx.org/learn/teaching' target='_blank' rel='noopener' aria-label='edX Teaching Courses'><i class='fas fa-external-link-alt'></i> edX: Teaching Courses</a></li>">
+                        <i class="fas fa-chalkboard-teacher career-icon"></i>
+                        <h3>Teacher</h3>
+                        <p>Educate and inspire students...</p>
+                    </article>
+                </div>
+                <!-- Chartered Accountant -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Chartered Accountant"
+                        data-career-icon="fa-calculator"
+                        data-career-description="Manage financial records and ensure compliance."
+                        data-career-paths="<li>Enroll in CA program after 12th.</li><li>Pass CA Foundation, Intermediate, and Final exams.</li><li>Complete 3-year articleship.</li><li>Work in auditing or taxation.</li>"
+                        data-career-resources="<li><a href='https://www.icai.org' target='_blank' rel='noopener' aria-label='ICAI CA Program'><i class='fas fa-external-link-alt'></i> ICAI: CA Program</a></li><li><a href='https://unacademy.com' target='_blank' rel='noopener' aria-label='Unacademy CA Courses'><i class='fas fa-external-link-alt'></i> Unacademy: CA Courses</a></li>">
+                        <i class="fas fa-calculator career-icon"></i>
+                        <h3>Chartered Accountant</h3>
+                        <p>Manage financial records...</p>
+                    </article>
+                </div>
+                <!-- Wildlife Biologist -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Wildlife Biologist"
+                        data-career-icon="fa-paw"
+                        data-career-description="Study ecosystems and wildlife to aid conservation."
+                        data-career-paths="<li>B.Sc/M.Sc in Biology or Wildlife Sciences.</li><li>Gain fieldwork experience.</li><li>Work with NGOs or government agencies.</li><li>Contribute to conservation projects.</li>"
+                        data-career-resources="<li><a href='https://www.wwf-india.org' target='_blank' rel='noopener' aria-label='WWF India Conservation Resources'><i class='fas fa-external-link-alt'></i> WWF India</a></li><li><a href='https://www.coursera.org/learn/ecology' target='_blank' rel='noopener' aria-label='Coursera Ecology Course'><i class='fas fa-external-link-alt'></i> Coursera: Ecology</a></li>">
+                        <i class="fas fa-paw career-icon"></i>
+                        <h3>Wildlife Biologist</h3>
+                        <p>Study ecosystems and wildlife...</p>
+                    </article>
+                </div>
+                <!-- Food Taster -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Food Taster"
+                        data-career-icon="fa-utensils"
+                        data-career-description="Test food products for quality and flavor."
+                        data-career-paths="<li>Diploma in Food Technology or Culinary Arts.</li><li>Develop a keen sense of taste.</li><li>Work with food manufacturers or restaurants.</li><li>Obtain sensory evaluation training.</li>"
+                        data-career-resources="<li><a href='https://www.iifpt.edu.in' target='_blank' rel='noopener' aria-label='IIFPT Food Technology Programs'><i class='fas fa-external-link-alt'></i> IIFPT: Food Technology</a></li><li><a href='https://www.skillshare.com' target='_blank' rel='noopener' aria-label='Skillshare Culinary Courses'><i class='fas fa-external-link-alt'></i> Skillshare: Culinary Courses</a></li>">
+                        <i class="fas fa-utensils career-icon"></i>
+                        <h3>Food Taster</h3>
+                        <p>Test food products...</p>
+                    </article>
+                </div>
+                <!-- Ethical Hacker -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Ethical Hacker"
+                        data-career-icon="fa-user-secret"
+                        data-career-description="Test systems for security vulnerabilities."
+                        data-career-paths="<li>Degree in IT or Cybersecurity.</li><li>Learn penetration testing tools.</li><li>Earn CEH or OSCP certifications.</li><li>Work for cybersecurity firms.</li>"
+                        data-career-resources="<li><a href='https://www.eccouncil.org' target='_blank' rel='noopener' aria-label='EC-Council CEH Certification'><i class='fas fa-external-link-alt'></i> EC-Council: CEH</a></li><li><a href='https://tryhackme.com' target='_blank' rel='noopener' aria-label='TryHackMe Cybersecurity Training'><i class='fas fa-external-link-alt'></i> TryHackMe</a></li>">
+                        <i class="fas fa-user-secret career-icon"></i>
+                        <h3>Ethical Hacker</h3>
+                        <p>Test systems for security...</p>
+                    </article>
+                </div>
+                <!-- Video Game Tester -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Video Game Tester"
+                        data-career-icon="fa-gamepad"
+                        data-career-description="Test games for bugs and user experience."
+                        data-career-paths="<li>Basic knowledge of gaming and QA.</li><li>Take courses in game design or QA.</li><li>Start with freelance or contractual roles.</li><li>Work with game development studios.</li>"
+                        data-career-resources="<li><a href='https://www.coursera.org/learn/game-design' target='_blank' rel='noopener' aria-label='Coursera Game Design Course'><i class='fas fa-external-link-alt'></i> Coursera: Game Design</a></li><li><a href='https://www.gamedev.net' target='_blank' rel='noopener' aria-label='GameDev.net Resources'><i class='fas fa-external-link-alt'></i> GameDev.net</a></li>">
+                        <i class="fas fa-gamepad career-icon"></i>
+                        <h3>Video Game Tester</h3>
+                        <p>Test games for bugs...</p>
+                    </article>
+                </div>
+                <!-- Conservation Engineer -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Conservation Engineer"
+                        data-career-icon="fa-leaf"
+                        data-career-description="Develop solutions for environmental sustainability."
+                        data-career-paths="<li>B.Tech in Environmental Engineering.</li><li>Work on conservation projects.</li><li>Collaborate with NGOs or government.</li><li>Pursue M.Tech for advanced roles.</li>"
+                        data-career-resources="<li><a href='https://www.ceeindia.org' target='_blank' rel='noopener' aria-label='CEE India Conservation Resources'><i class='fas fa-external-link-alt'></i> CEE India</a></li><li><a href='https://www.edx.org/learn/environmental-engineering' target='_blank' rel='noopener' aria-label='edX Environmental Engineering Courses'><i class='fas fa-external-link-alt'></i> edX: Environmental Engineering</a></li>">
+                        <i class="fas fa-leaf career-icon"></i>
+                        <h3>Conservation Engineer</h3>
+                        <p>Develop solutions for...</p>
+                    </article>
+                </div>
+                <!-- Pet Groomer -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Pet Groomer"
+                        data-career-icon="fa-dog"
+                        data-career-description="Maintain pet hygiene and appearance."
+                        data-career-paths="<li>Certification in pet grooming.</li><li>Gain hands-on experience with animals.</li><li>Work at pet salons or start a business.</li><li>Learn animal behavior basics.</li>"
+                        data-career-resources="<li><a href='https://www.petgroomer.com' target='_blank' rel='noopener' aria-label='PetGroomer.com Resources'><i class='fas fa-external-link-alt'></i> PetGroomer.com</a></li><li><a href='https://www.udemy.com/topic/pet-care/' target='_blank' rel='noopener' aria-label='Udemy Pet Care Courses'><i class='fas fa-external-link-alt'></i> Udemy: Pet Care</a></li>">
+                        <i class="fas fa-dog career-icon"></i>
+                        <h3>Pet Groomer</h3>
+                        <p>Maintain pet hygiene...</p>
+                    </article>
+                </div>
+                <!-- Social Media Influencer -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Social Media Influencer"
+                        data-career-icon="fa-camera"
+                        data-career-description="Create content to engage online audiences."
+                        data-career-paths="<li>Develop skills in content creation.</li><li>Build a following on platforms like Instagram.</li><li>Learn digital marketing basics.</li><li>Collaborate with brands for sponsorships.</li>"
+                        data-career-resources="<li><a href='https://www.skillshare.com' target='_blank' rel='noopener' aria-label='Skillshare Content Creation Courses'><i class='fas fa-external-link-alt'></i> Skillshare: Content Creation</a></li><li><a href='https://www.upgrad.com/digital-marketing-and-communication-pgc/' target='_blank' rel='noopener' aria-label='upGrad Digital Marketing Program'><i class='fas fa-external-link-alt'></i> upGrad: Digital Marketing</a></li>">
+                        <i class="fas fa-camera career-icon"></i>
+                        <h3>Social Media Influencer</h3>
+                        <p>Create content to engage...</p>
+                    </article>
+                </div>
+                <!-- Dance Trainer -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Dance Trainer"
+                        data-career-icon="fa-person-dancing"
+                        data-career-description="Teach various dance forms to students."
+                        data-career-paths="<li>Train in classical or contemporary dance.</li><li>Earn a diploma in dance.</li><li>Work at dance academies or start a studio.</li><li>Participate in competitions or shows.</li>"
+                        data-career-resources="<li><a href='https://www.shiamak.com' target='_blank' rel='noopener' aria-label='Shiamak Davar Dance Academy'><i class='fas fa-external-link-alt'></i> Shiamak Davar Dance Academy</a></li><li><a href='https://www.udemy.com/topic/dance/' target='_blank' rel='noopener' aria-label='Udemy Dance Courses'><i class='fas fa-external-link-alt'></i> Udemy: Dance Courses</a></li>">
+                        <i class="fas fa-person-dancing career-icon"></i>
+                        <h3>Dance Trainer</h3>
+                        <p>Teach various dance forms...</p>
+                    </article>
+                </div>
+                <!-- Sports Trainer -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Sports Trainer"
+                        data-career-icon="fa-dumbbell"
+                        data-career-description="Coach athletes to improve performance."
+                        data-career-paths="<li>Degree in Physical Education.</li><li>Obtain coaching certifications.</li><li>Work with schools or sports academies.</li><li>Specialize in a sport (e.g., cricket, football).</li>"
+                        data-career-resources="<li><a href='https://www.sportsschool.nic.in' target='_blank' rel='noopener' aria-label='SAI Sports Coaching Programs'><i class='fas fa-external-link-alt'></i> SAI: Sports Coaching</a></li><li><a href='https://www.coursera.org/learn/sports-coaching' target='_blank' rel='noopener' aria-label='Coursera Sports Coaching Course'><i class='fas fa-external-link-alt'></i> Coursera: Sports Coaching</a></li>">
+                        <i class="fas fa-dumbbell career-icon"></i>
+                        <h3>Sports Trainer</h3>
+                        <p>Coach athletes to improve...</p>
+                    </article>
+                </div>
+                <!-- Animator -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Animator"
+                        data-career-icon="fa-film"
+                        data-career-description="Create visual effects for films, games, and media."
+                        data-career-paths="<li>Degree or diploma in Animation.</li><li>Learn software like Maya or Blender.</li><li>Build a portfolio of animations.</li><li>Work with studios or freelance.</li>"
+                        data-career-resources="<li><a href='https://www.arena-multimedia.com' target='_blank' rel='noopener' aria-label='Arena Animation Courses'><i class='fas fa-external-link-alt'></i> Arena Animation</a></li><li><a href='https://www.coursera.org/learn/animation' target='_blank' rel='noopener' aria-label='Coursera Animation Course'><i class='fas fa-external-link-alt'></i> Coursera: Animation</a></li>">
+                        <i class="fas fa-film career-icon"></i>
+                        <h3>Animator</h3>
+                        <p>Create visual effects...</p>
+                    </article>
+                </div>
+                <!-- E-Learning Specialist -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="E-Learning Specialist"
+                        data-career-icon="fa-graduation-cap"
+                        data-career-description="Design online courses and educational content."
+                        data-career-paths="<li>Degree in Education or Instructional Design.</li><li>Learn LMS platforms like Moodle.</li><li>Develop content creation skills.</li><li>Work with ed-tech companies.</li>"
+                        data-career-resources="<li><a href='https://www.edx.org/learn/instructional-design' target='_blank' rel='noopener' aria-label='edX Instructional Design Courses'><i class='fas fa-external-link-alt'></i> edX: Instructional Design</a></li><li><a href='https://www.upgrad.com' target='_blank' rel='noopener' aria-label='upGrad Ed-Tech Courses'><i class='fas fa-external-link-alt'></i> upGrad: Ed-Tech Courses</a></li>">
+                        <i class="fas fa-graduation-cap career-icon"></i>
+                        <h3>E-Learning Specialist</h3>
+                        <p>Design online courses...</p>
+                    </article>
+                </div>
+                <!-- Sustainable Agriculture Specialist -->
+                <div class="col-md-6 col-lg-4" role="listitem">
+                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                        data-career-title="Sustainable Agriculture Specialist"
+                        data-career-icon="fa-seedling"
+                        data-career-description="Innovate farming for sustainability and food security."
+                        data-career-paths="<li>B.Sc/M.Sc in Agriculture.</li><li>Learn organic farming techniques.</li><li>Work with cooperatives or startups.</li><li>Contribute to policy or research.</li>"
+                        data-career-resources="<li><a href='https://www.icar.org.in' target='_blank' rel='noopener' aria-label='ICAR Agriculture Research'><i class='fas fa-external-link-alt'></i> ICAR: Agriculture Research</a></li><li><a href='https://www.coursera.org/learn/agriculture' target='_blank' rel='noopener' aria-label='Coursera Agriculture Course'><i class='fas fa-external-link-alt'></i> Coursera: Agriculture</a></li>">
+                        <i class="fas fa-seedling career-icon"></i>
+                        <h3>Sustainable Agriculture Specialist</h3>
+                        <p>Innovate farming for...</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Modal -->
+    <div class="modal fade" id="careerModal" tabindex="-1" aria-labelledby="careerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="careerModalLabel">Career Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i id="modalCareerIcon" class="fas me-3"></i>
+                        <h3 id="modalCareerTitle"></h3>
+                    </div>
+                    <p id="modalCareerDescription"></p>
+                    <hr class="modal-divider">
+                    <h4>Possible Paths</h4>
+                    <ul id="modalCareerPaths"></ul>
+                    <hr class="modal-divider">
+                    <h4>Resources</h4>
+                    <ul id="modalCareerResources" class="resource-list"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-pulse" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Career Navigator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and Custom JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Handle modal content population
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('careerModal');
+            modal.addEventListener('show.bs.modal', (event) => {
+                const card = event.relatedTarget;
+                const title = card.getAttribute('data-career-title');
+                const icon = card.getAttribute('data-career-icon');
+                const description = card.getAttribute('data-career-description');
+                const paths = card.getAttribute('data-career-paths');
+                const resources = card.getAttribute('data-career-resources');
+
+                document.getElementById('careerModalLabel').textContent = title;
+                document.getElementById('modalCareerTitle').textContent = title;
+                document.getElementById('modalCareerIcon').className = `fas ${icon} me-3`;
+                document.getElementById('modalCareerDescription').textContent = description;
+                document.getElementById('modalCareerPaths').innerHTML = paths;
+                document.getElementById('modalCareerResources').innerHTML = resources;
+            });
+        });
+    </script>
+</body>
+</html>
