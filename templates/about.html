@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Navigator - About the Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Custom Table Styles */
+        .pretty-table-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .pretty-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .pretty-table thead th {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: var(--background);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 2px solid var(--primary-dark);
+        }
+
+        .pretty-table tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .pretty-table tbody tr:nth-child(even) {
+            background: rgba(245, 245, 245, 0.5);
+        }
+
+        .pretty-table tbody tr:hover {
+            background: var(--primary-light);
+            transform: scale(1.01);
+        }
+
+        .pretty-table td {
+            padding: 1rem;
+            font-size: 1rem;
+            color: var(--text);
+            border-bottom: 1px solid var(--primary-light);
+        }
+
+        .pretty-table th:first-child,
+        .pretty-table td:first-child {
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+
+        .pretty-table th:last-child,
+        .pretty-table td:last-child {
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .pretty-table thead th,
+            .pretty-table td {
+                font-size: 0.9rem;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <!-- About Project Section -->
+    <div class="container my-5">
+        <h1 class="text-center mb-4">About Career Navigator</h1>
+
+        <!-- Problem Statement -->
+        <section class="mb-5">
+            <h2>Problem Statement</h2>
+            <p>
+                Choosing a career path is a critical decision for students, often influenced by a complex interplay of personal, academic, and financial factors. Many students lack access to personalized guidance that considers their unique profiles, including academic performance, personality traits, interests, and financial constraints. Traditional career counseling methods may not scale effectively or leverage data-driven insights, leading to suboptimal career choices that do not align with individual strengths or market demands.
+            </p>
+        </section>
+
+        <!-- Solution -->
+        <section class="mb-5">
+            <h2>Solution</h2>
+            <p>
+                The Career Navigator is a web-based application that uses machine learning to provide personalized career recommendations. By collecting data on users' age, education level, academic scores, personality traits, study habits, extracurricular activities, hobbies, interests, budget, and career demand preferences, the system predicts suitable career paths. The model, trained on a comprehensive dataset, employs a Random Forest Classifier to ensure robust predictions. The user-friendly interface allows students to input their details through an interactive form, receiving tailored career suggestions that align with their profiles and aspirations.
+            </p>
+        </section>
+
+        <!-- Architecture Diagram -->
+        <section class="mb-5">
+            <h2>Architecture Diagram</h2>
+            <p>
+                The Career Navigator follows a client-server architecture. The frontend, built with HTML, CSS, and JavaScript, uses Bootstrap for responsive design and Flask's Jinja2 templating for dynamic content. The backend, powered by Flask, handles form submissions, preprocesses data using StandardScaler, and makes predictions with a pre-trained Random Forest model. The model is trained on a synthetic dataset and serialized using joblib for efficient loading. The diagram below illustrates the data flow from user input to career prediction.
+            </p>
+            <div class="text-center">
+                <img src="{{ url_for('static', filename='architecture_diagram.png') }}" alt="Career Navigator Architecture Diagram" class="img-fluid" style="max-width: 80%; height: auto;">
+            </div>
+        </section>
+
+        <!-- Dataset Source and Features -->
+        <section class="mb-5">
+            <h2>Dataset Source and Features</h2>
+            <p>
+                The Career Navigator uses a synthetic dataset, <code>icn_dataset_30k.csv</code>, sourced from Kaggle. This dataset contains 30,000 records simulating student profiles and their corresponding career outcomes. The features, listed below, capture a wide range of attributes to ensure accurate career predictions. The dataset is preprocessed using StandardScaler to normalize numerical features before training the Random Forest model.
+            </p>
+            <p>
+                <strong>Source:</strong> <a href="https://www.kaggle.com/datasets" target="_blank">Kaggle - Synthetic Career Dataset</a>
+            </p>
+            <div class="pretty-table-container table-responsive">
+                <table class="pretty-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Age</td>
+                        <td>User's age (15-70)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Education Level</td>
+                        <td>Highest education level (Grade 10, Grade 11, Grade 12, UG, PG)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>CGPA</td>
+                        <td>Cumulative Grade Point Average (0.0-10.0)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Math Score</td>
+                        <td>Math performance score (0-100)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Physics Score</td>
+                        <td>Physics performance score (0-100)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Biology Score</td>
+                        <td>Biology performance score (0-100)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>History Score</td>
+                        <td>History performance score (0-100)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Openness</td>
+                        <td>Personality trait: openness to new experiences (1-10)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Conscientiousness</td>
+                        <td>Personality trait: organization and dependability (1-10)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Extraversion</td>
+                        <td>Personality trait: outgoing and social nature (1-10)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Agreeableness</td>
+                        <td>Personality trait: compassion and cooperation (1-10)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Neuroticism</td>
+                        <td>Personality trait: emotional instability (1-10)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Weekly Self-Study Hours</td>
+                        <td>Hours spent on self-study per week (0-100)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Extracurricular Activities</td>
+                        <td>Participation in extracurricular activities (0: No, 1: Yes)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Hobbies</td>
+                        <td>User-selected hobbies (e.g., coding, cooking, dance)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Interests</td>
+                        <td>Primary interest area (arts, business, healthcare, technology)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Budget</td>
+                        <td>Education/training budget in lakhs INR (1-20)</td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Career Demand Score</td>
+                        <td>Perceived job market demand (1-10)</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- GitHub URL -->
+        <section class="mb-5">
+            <h2>GitHub Repository</h2>
+            <p>
+                The source code for the Career Navigator project is available on GitHub. Explore the repository to view the code, contribute, or report issues.
+            </p>
+            <p>
+                <strong>GitHub URL:</strong> <a href="https://github.com/username/career-navigator" target="_blank">https://github.com/username/career-navigator</a>
+            </p>
+        </section>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
