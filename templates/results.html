@@ -9,45 +9,41 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url_for('index') }}">Career Navigator</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('predictor') }}">Predictor</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {% include 'navbar.html' %}
 
     <!-- Results Section -->
     <div class="container">
         <div class="card">
             <h2>Your Recommended Career Path</h2>
             <h3 class="career-result">{{ career }}</h3>
+            {% if confidence is defined and confidence is not none %}
+                <p class="lead">Confidence: <strong>{{ "%.2f"|format(confidence) }}%</strong></p>
+            {% endif %}
             <p class="lead">Based on your unique profile, we recommend a career in <strong>{{ career }}</strong>. Take the next step to explore this path and shape your future!</p>
             <div class="d-flex justify-content-center gap-3">
                 <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
                 <a href="{{ url_for('predictor') }}" class="btn btn-primary">Try Again</a>
             </div>
         </div>
+
+        <!-- Top 3 Career Paths -->
+        <div class="top-careers mt-5">
+            <h2 class="text-center mb-4">Top 3 Career Paths for You</h2>
+            <div class="row justify-content-center">
+                {% for career in top_3_careers %}
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="career-card">
+                        <h3>{{ career.name }}</h3>
+                        <p>Confidence: <strong>{{ "%.2f"|format(career.confidence) }}%</strong></p>
+                        <a href="{{ url_for('careers') }}#{{ career.id }}" class="btn btn-outline-primary">Explore</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>© 2025 Career Navigator. All rights reserved.</p>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

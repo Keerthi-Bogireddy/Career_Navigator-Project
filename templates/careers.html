@@ -10,28 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url_for('index') }}">Career Navigator</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('predictor') }}">Predictor</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('careers') }}">Careers</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {% include 'navbar.html' %}
 
     <!-- Careers Section -->
     <section class="careers-section">
@@ -41,7 +20,7 @@
             <div class="row g-4" role="list" aria-label="List of career options">
                 <!-- Data Scientist -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="data-scientist" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Data Scientist"
                         data-career-icon="fa-chart-line"
                         data-career-description="Analyze complex datasets to uncover insights and drive business decisions."
@@ -54,7 +33,7 @@
                 </div>
                 <!-- Software Engineer -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="software-engineer" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Software Engineer"
                         data-career-icon="fa-laptop-code"
                         data-career-description="Design and develop software applications and systems."
@@ -67,7 +46,7 @@
                 </div>
                 <!-- Doctor -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="doctor" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Doctor"
                         data-career-icon="fa-user-doctor"
                         data-career-description="Diagnose and treat patients to improve health outcomes."
@@ -80,7 +59,7 @@
                 </div>
                 <!-- Digital Marketer -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="digital-marketer" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Digital Marketer"
                         data-career-icon="fa-bullhorn"
                         data-career-description="Promote brands and products through online channels."
@@ -93,7 +72,7 @@
                 </div>
                 <!-- AI/ML Engineer -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="ai-ml-engineer" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="AI/ML Engineer"
                         data-career-icon="fa-robot"
                         data-career-description="Build intelligent algorithms for automation and decision-making."
@@ -106,7 +85,7 @@
                 </div>
                 <!-- Cloud Architect -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="cloud-architect" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Cloud Architect"
                         data-career-icon="fa-cloud"
                         data-career-description="Design and manage cloud-based systems for organizations."
@@ -119,7 +98,7 @@
                 </div>
                 <!-- Financial Manager -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="financial-manager" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Financial Manager"
                         data-career-icon="fa-sack-dollar"
                         data-career-description="Oversee corporate finances and investment plans."
@@ -132,7 +111,7 @@
                 </div>
                 <!-- Lawyer -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="lawyer" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Lawyer"
                         data-career-icon="fa-gavel"
                         data-career-description="Provide legal advice and represent clients in court."
@@ -145,7 +124,7 @@
                 </div>
                 <!-- Product Manager -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="product-manager" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Product Manager"
                         data-career-icon="fa-box-open"
                         data-career-description="Oversee product development from ideation to launch."
@@ -158,7 +137,7 @@
                 </div>
                 <!-- Cybersecurity Engineer -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="cybersecurity-engineer" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Cybersecurity Engineer"
                         data-career-icon="fa-shield-alt"
                         data-career-description="Protect systems from cyber threats and vulnerabilities."
@@ -171,7 +150,7 @@
                 </div>
                 <!-- Teacher -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="teacher" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Teacher"
                         data-career-icon="fa-chalkboard-teacher"
                         data-career-description="Educate and inspire students across various subjects."
@@ -184,7 +163,7 @@
                 </div>
                 <!-- Chartered Accountant -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="chartered-accountant" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Chartered Accountant"
                         data-career-icon="fa-calculator"
                         data-career-description="Manage financial records and ensure compliance."
@@ -197,7 +176,7 @@
                 </div>
                 <!-- Wildlife Biologist -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="wildlife-biologist" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Wildlife Biologist"
                         data-career-icon="fa-paw"
                         data-career-description="Study ecosystems and wildlife to aid conservation."
@@ -210,7 +189,7 @@
                 </div>
                 <!-- Food Taster -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="food-taster" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Food Taster"
                         data-career-icon="fa-utensils"
                         data-career-description="Test food products for quality and flavor."
@@ -223,7 +202,7 @@
                 </div>
                 <!-- Ethical Hacker -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="ethical-hacker" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Ethical Hacker"
                         data-career-icon="fa-user-secret"
                         data-career-description="Test systems for security vulnerabilities."
@@ -236,7 +215,7 @@
                 </div>
                 <!-- Video Game Tester -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="video-game-tester" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Video Game Tester"
                         data-career-icon="fa-gamepad"
                         data-career-description="Test games for bugs and user experience."
@@ -249,7 +228,7 @@
                 </div>
                 <!-- Conservation Engineer -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="conservation-engineer" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Conservation Engineer"
                         data-career-icon="fa-leaf"
                         data-career-description="Develop solutions for environmental sustainability."
@@ -262,7 +241,7 @@
                 </div>
                 <!-- Pet Groomer -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="pet-groomer" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Pet Groomer"
                         data-career-icon="fa-dog"
                         data-career-description="Maintain pet hygiene and appearance."
@@ -275,7 +254,7 @@
                 </div>
                 <!-- Social Media Influencer -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="social-media-influencer" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Social Media Influencer"
                         data-career-icon="fa-camera"
                         data-career-description="Create content to engage online audiences."
@@ -288,7 +267,7 @@
                 </div>
                 <!-- Dance Trainer -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="dance-trainer" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Dance Trainer"
                         data-career-icon="fa-person-dancing"
                         data-career-description="Teach various dance forms to students."
@@ -301,7 +280,7 @@
                 </div>
                 <!-- Sports Trainer -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="sports-trainer" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Sports Trainer"
                         data-career-icon="fa-dumbbell"
                         data-career-description="Coach athletes to improve performance."
@@ -314,7 +293,7 @@
                 </div>
                 <!-- Animator -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="animator" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Animator"
                         data-career-icon="fa-film"
                         data-career-description="Create visual effects for films, games, and media."
@@ -327,7 +306,7 @@
                 </div>
                 <!-- E-Learning Specialist -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="e-learning-specialist" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="E-Learning Specialist"
                         data-career-icon="fa-graduation-cap"
                         data-career-description="Design online courses and educational content."
@@ -340,7 +319,7 @@
                 </div>
                 <!-- Sustainable Agriculture Specialist -->
                 <div class="col-md-6 col-lg-4" role="listitem">
-                    <article class="career-card" data-bs-toggle="modal" data-bs-target="#careerModal"
+                    <article class="career-card" id="sustainable-agriculture-specialist" data-bs-toggle="modal" data-bs-target="#careerModal"
                         data-career-title="Sustainable Agriculture Specialist"
                         data-career-icon="fa-seedling"
                         data-career-description="Innovate farming for sustainability and food security."
@@ -383,14 +362,8 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>© 2025 Career Navigator. All rights reserved.</p>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
 
-    <!-- Bootstrap and Custom JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Handle modal content population

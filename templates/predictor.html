@@ -9,25 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url_for('index') }}">Career Navigator</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('predictor') }}">Predictor</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {% include 'navbar.html' %}
 
     <!-- Form Section -->
     <div class="container">
@@ -42,7 +24,7 @@
             <div class="form-section active" id="personal">
                 <h3>Personal Information</h3>
                 <div class="mb-3">
-                    <label class="form-label" for="age">Age <span class="range-label">(15-100)</span></label>
+                    <label class="form-label" for="age">Age <span class="range-label">(15-70)</span></label>
                     <input type="number" name="age" id="age" class="form-control" placeholder="Enter your age" required aria-describedby="age-error">
                     <div class="error-message" id="age-error">Please enter a valid age between 15 and 100.</div>
                 </div>
@@ -102,27 +84,27 @@
                 <h3>Personality Traits</h3>
                 <div class="mb-3">
                     <label class="form-label" for="openness">Openness <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="openness" id="openness" class="form-control" placeholder="Rate openness" required aria-describedby="openness-error">
+                    <input type="number" name="openness" id="openness" class="form-control" placeholder=" " required aria-describedby="openness-error">
                     <div class="error-message" id="openness-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="conscientiousness">Conscientiousness <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="conscientiousness" id="conscientiousness" class="form-control" placeholder="Rate conscientiousness" required aria-describedby="conscientiousness-error">
+                    <input type="number" name="conscientiousness" id="conscientiousness" class="form-control" placeholder=" " required aria-describedby="conscientiousness-error">
                     <div class="error-message" id="conscientiousness-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="extraversion">Extraversion <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="extraversion" id="extraversion" class="form-control" placeholder="Rate extraversion" required aria-describedby="extraversion-error">
+                    <input type="number" name="extraversion" id="extraversion" class="form-control" placeholder=" " required aria-describedby="extraversion-error">
                     <div class="error-message" id="extraversion-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="agreeableness">Agreeableness <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="agreeableness" id="agreeableness" class="form-control" placeholder="Rate agreeableness" required aria-describedby="agreeableness-error">
+                    <input type="number" name="agreeableness" id="agreeableness" class="form-control" placeholder=" " required aria-describedby="agreeableness-error">
                     <div class="error-message" id="agreeableness-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="neuroticism">Neuroticism <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="neuroticism" id="neuroticism" class="form-control" placeholder="Rate neuroticism" required aria-describedby="neuroticism-error">
+                    <input type="number" name="neuroticism" id="neuroticism" class="form-control" placeholder=" " required aria-describedby="neuroticism-error">
                     <div class="error-message" id="neuroticism-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -135,7 +117,7 @@
             <div class="form-section" id="study">
                 <h3>Study Habits</h3>
                 <div class="mb-3">
-                    <label class="form-label" for="weekly_self_study_hours">Weekly Self-Study Hours <span class="range-label">(0-168)</span></label>
+                    <label class="form-label" for="weekly_self_study_hours">Weekly Self-Study Hours <span class="range-label">(0-100)</span></label>
                     <input type="number" name="weekly_self_study_hours" id="weekly_self_study_hours" class="form-control" placeholder="Enter hours spent on self-study per week" required aria-describedby="weekly_self_study_hours-error">
                     <div class="error-message" id="weekly_self_study_hours-error">Please enter a valid number between 0 and 168.</div>
                 </div>
@@ -234,13 +216,13 @@
             <div class="form-section" id="financial">
                 <h3>Financial Information</h3>
                 <div class="mb-3">
-                    <label class="form-label" for="budget">Budget (in INR) <span class="range-label">(0-1,000,000)</span></label>
+                    <label class="form-label" for="budget">Budget (in INR) <span class="range-label"></span></label>
                     <input type="number" name="budget" id="budget" class="form-control" placeholder="Enter your education budget" required aria-describedby="budget-error">
                     <div class="error-message" id="budget-error">Please enter a valid budget between 0 and 1,000,000.</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="career_demand_score">Career Demand Score <span class="range-label">(1-10)</span></label>
-                    <input type="number" name="career_demand_score" id="career_demand_score" class="form-control" placeholder="Rate demand for your preferred career" required aria-describedby="career_demand_score-error">
+                    <input type="number" name="career_demand_score" id="career_demand_score" class="form-control" placeholder=" " required aria-describedby="career_demand_score-error">
                     <div class="error-message" id="career_demand_score-error">Please enter a valid score between 1 and 10.</div>
                 </div>
                 <div class="d-flex justify-content-between">
@@ -251,12 +233,7 @@
         </form>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>© 2025 Career Navigator. All rights reserved.</p>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
