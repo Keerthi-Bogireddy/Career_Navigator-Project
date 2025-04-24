@@ -61,6 +61,7 @@ The app will start in debug mode at http://127.0.0.1:5000.
 
 
 ## File Structure
+```
 career-navigator/
 ├── data/
 │   └── icn_dataset_30k.csv     # Dataset for training the model
@@ -80,6 +81,8 @@ career-navigator/
 ├── model.pkl                   # Trained model and preprocessing objects
 ├── requirements.txt            # Python dependencies
 └── README.md                   # Project documentation
+```
+
 
 ## Usage
 
