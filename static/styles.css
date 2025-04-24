@@ -1,22 +1,26 @@
-/* Global Styles */
+/* Career Navigator - Custom Styles */
+
+/* Define color variables */
 :root {
-    --primary: #F28C38; /* Soft Coral */
-    --primary-dark: #D9742F; /* Deep Coral */
-    --primary-light: #F9A670; /* Light Coral */
-    --secondary: #4A6FA5; /* Slate Blue */
-    --secondary-dark: #3A5A8A; /* Dark Slate */
-    --background: #F5F5F5; /* Off-White */
-    --text: #2D2D2D; /* Charcoal */
-    --accent: #F4C430; /* Golden Yellow */
-    --accent-dark: #E3B320; /* Deep Yellow */
+    --primary: #1f497d;         /* Dark Blue for headers, buttons, key visuals */
+    --primary-dark: #17355f;    /* Darker Blue for hover states */
+    --primary-light: #3d6199;   /* Lighter Blue for highlights */
+    --secondary: #5d7599;       /* Soft Blue for secondary UI elements */
+    --secondary-dark: #4a5f7a;  /* Darker Soft Blue for secondary hover */
+    --background: #f8f5f0;      /* Light Cream for backgrounds */
+    --text-primary: #2c2c2c;    /* Dark Gray for primary text */
+    --text-secondary: #708090;  /* Slate Gray for secondary text */
+    --highlight: #bfa25a;       /* Muted Gold for icons, hover effects */
+    --highlight-dark: #a68a4a;  /* Darker Muted Gold for hover states */
 }
 
+/* Global Styles */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     margin: 0;
     padding: 0;
-    background: radial-gradient(circle at center, #FFF9F2 0%, #F5F5F5 100%);
-    color: var(--text);
+    background: var(--background);
+    color: var(--text-primary);
     line-height: 1.7;
 }
 
@@ -28,17 +32,17 @@ body {
 
 /* Navbar */
 .navbar {
-    background: linear-gradient(180deg, var(--secondary), var(--secondary-dark));
+    background: var(--primary);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 1rem; /* Adjusted for 20vh */
-    height: 20vh; /* 20% of viewport height */
+    padding: 0.5rem 1rem;
+    height: 20vh;
     border-radius: 10px;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.navbar .container {
+.navbar .container-fluid {
     max-width: 100%;
     padding: 0;
     display: flex;
@@ -46,23 +50,23 @@ body {
 }
 
 .navbar-brand {
-    font-size: 1.4rem; /* Adjusted for 20vh */
+    font-size: 1.4rem;
     font-weight: 700;
-    color: var(--accent) !important;
+    color: var(--highlight) !important;
     letter-spacing: 0.5px;
     margin-right: 0.8rem;
 }
 
 .nav-link {
-    font-size: 1rem; /* Adjusted for 20vh */
+    font-size: 1rem;
     font-weight: 500;
-    color: var(--background);
+    color: var(--background) !important;
     transition: color 0.3s ease, transform 0.3s ease;
     padding: 0.3rem 0.6rem;
 }
 
 .nav-link:hover, .nav-link.active {
-    color: var(--primary-light) !important;
+    color: var(--highlight) !important;
     transform: translateY(-2px);
 }
 
@@ -73,7 +77,7 @@ body {
 
 /* Footer */
 footer {
-    background: linear-gradient(180deg, var(--secondary-dark), var(--secondary));
+    background: var(--primary);
     color: var(--background);
     padding: 3rem 0;
     margin-top: 6rem;
@@ -85,16 +89,9 @@ footer p {
     font-weight: 400;
 }
 
-.confidence {
-    font-size: 1.3rem;
-    color: var(--primary-dark);
-    font-weight: 600;
-    margin-top: 1rem;
-}
-
 /* Buttons */
 .btn-primary {
-    background: linear-gradient(90deg, var(--primary), var(--accent));
+    background: var(--primary);
     border: none;
     font-size: 1.2rem;
     padding: 0.8rem 2.5rem;
@@ -106,9 +103,10 @@ footer p {
 }
 
 .btn-primary:hover {
-    background: linear-gradient(90deg, var(--primary-dark), var(--accent-dark));
+    background: var(--highlight);
+    color: var(--text-primary);
     transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(217, 116, 47, 0.3);
+    box-shadow: 0 8px 15px rgba(191, 162, 90, 0.3);
 }
 
 .btn-primary:active {
@@ -120,9 +118,9 @@ footer p {
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(242, 140, 56, 0.5); }
-    50% { box-shadow: 0 0 0 10px rgba(242, 140, 56, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(242, 140, 56, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(191, 162, 90, 0.5); }
+    50% { box-shadow: 0 0 0 10px rgba(191, 162, 90, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(191, 162, 90, 0); }
 }
 
 .btn-secondary {
@@ -136,9 +134,10 @@ footer p {
 }
 
 .btn-secondary:hover {
-    background: var(--secondary-dark);
+    background: var(--highlight);
+    color: var(--text-primary);
     transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(58, 90, 138, 0.3);
+    box-shadow: 0 8px 15px rgba(191, 162, 90, 0.3);
 }
 
 /* Index Page */
@@ -155,7 +154,7 @@ footer p {
 }
 
 .overlay {
-    background: linear-gradient(135deg, rgba(74, 111, 165, 0.7), rgba(242, 140, 56, 0.7));
+    background: rgba(31, 73, 125, 0.7);
     position: absolute;
     top: 0;
     left: 0;
@@ -169,9 +168,9 @@ footer p {
     text-align: center;
     padding: 5rem;
     border-radius: 25px;
-    background: rgba(245, 245, 245, 0.95);
+    background: rgba(248, 245, 240, 0.95);
     backdrop-filter: blur(10px);
-    color: var(--text);
+    color: var(--text-primary);
     max-width: 1000px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     animation: fadeIn 1.2s ease-in;
@@ -180,7 +179,7 @@ footer p {
 .content h1 {
     font-size: 4rem;
     font-weight: 700;
-    color: var(--secondary);
+    color: var(--primary);
     margin-bottom: 2rem;
     letter-spacing: 0.5px;
 }
@@ -188,6 +187,7 @@ footer p {
 .content p {
     font-size: 1.5rem;
     margin-bottom: 3rem;
+    color: var(--text-secondary);
 }
 
 @keyframes fadeIn {
@@ -198,7 +198,7 @@ footer p {
 /* Predictor Form */
 .form-section {
     display: none;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(248, 245, 240, 0.95);
     backdrop-filter: blur(8px);
     padding: 3.5rem;
     border-radius: 25px;
@@ -217,22 +217,24 @@ footer p {
 }
 
 .form-control, .form-select {
-    border: 2px solid #e0e0e0;
+    border: 2px solid var(--secondary);
     border-radius: 15px;
     padding: 1rem;
     font-size: 1.1rem;
     transition: all 0.3s ease;
+    background: var(--background);
+    color: var(--text-primary);
 }
 
 .form-control:focus, .form-select:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 12px rgba(242, 140, 56, 0.3);
+    border-color: var(--highlight);
+    box-shadow: 0 0 12px rgba(191, 162, 90, 0.3);
     outline: none;
 }
 
 .form-label {
     font-weight: 500;
-    color: var(--secondary);
+    color: var(--primary);
     font-size: 1.2rem;
 }
 
@@ -242,14 +244,14 @@ footer p {
 }
 
 .error-message {
-    color: var(--primary-dark);
+    color: var(--highlight);
     font-size: 0.95rem;
     margin-top: 0.4rem;
     display: none;
 }
 
 .range-label {
-    color: var(--secondary-dark);
+    color: var(--text-secondary);
     font-size: 0.95rem;
     margin-left: 0.8rem;
 }
@@ -262,12 +264,151 @@ footer p {
 .progress {
     height: 12px;
     border-radius: 8px;
-    background-color: #e0e0e0;
+    background-color: var(--secondary);
 }
 
 .progress-bar {
-    background: linear-gradient(90deg, var(--primary), var(--accent));
+    background: var(--primary);
     transition: width 0.6s ease;
+}
+
+/* Results Page */
+.card {
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    padding: 5rem;
+    background: rgba(248, 245, 240, 0.95);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    animation: fadeIn 1.2s ease;
+}
+
+.card h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 2rem;
+}
+
+.career-result {
+    font-size: 2.8rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.card .lead {
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+}
+
+/* Resources Section */
+.resources-container {
+    background: rgba(248, 245, 240, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.resources-list .list-group-item {
+    border: none;
+    border-bottom: 1px solid var(--secondary);
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.resources-list .list-group-item:hover {
+    background: var(--highlight);
+    transform: translateX(5px);
+}
+
+.resources-list .list-group-item a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.resources-list .list-group-item a:hover {
+    color: var(--highlight-dark);
+    text-decoration: underline;
+}
+
+.resources-list .list-group-item i {
+    margin-right: 0.75rem;
+    color: var(--highlight);
+    font-size: 1.2rem;
+}
+
+.resources-list .resource-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-left: 2rem;
+}
+
+/* About Page - Table */
+.pretty-table-container {
+    background: rgba(248, 245, 240, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.pretty-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.pretty-table thead th {
+    background: var(--primary);
+    color: var(--background);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 1.2rem;
+    text-align: left;
+    border-bottom: 2px solid var(--primary-dark);
+}
+
+.pretty-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.pretty-table tbody tr:nth-child(even) {
+    background: rgba(248, 245, 240, 0.5);
+}
+
+.pretty-table tbody tr:hover {
+    background: var(--highlight);
+    transform: scale(1.01);
+}
+
+.pretty-table td {
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--secondary);
+}
+
+.pretty-table th:first-child,
+.pretty-table td:first-child {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.pretty-table th:last-child,
+.pretty-table td:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 /* Careers Page */
@@ -278,20 +419,20 @@ footer p {
 .careers-section h1 {
     font-size: 3.5rem;
     font-weight: 700;
-    color: var(--secondary);
+    color: var(--primary);
     margin-bottom: 2rem;
     letter-spacing: 0.5px;
 }
 
 .careers-section p {
     font-size: 1.4rem;
-    color: var(--text);
+    color: var(--text-secondary);
     max-width: 900px;
     font-weight: 400;
 }
 
 .career-card {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(248, 245, 240, 0.2);
     backdrop-filter: blur(12px);
     border-radius: 20px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -305,7 +446,7 @@ footer p {
     align-items: center;
     text-align: center;
     transition: all 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--secondary);
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -313,9 +454,9 @@ footer p {
 
 .career-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(242, 140, 56, 0.2);
+    box-shadow: 0 12px 30px rgba(191, 162, 90, 0.2);
     border: 1px solid transparent;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(249, 166, 112, 0.1));
+    background: var(--highlight);
 }
 
 .career-card:hover::before {
@@ -327,7 +468,7 @@ footer p {
     bottom: 0;
     border-radius: 20px;
     border: 2px solid transparent;
-    background: linear-gradient(45deg, var(--primary), var(--accent)) border-box;
+    background: var(--highlight) border-box;
     -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
@@ -335,7 +476,7 @@ footer p {
 
 .career-icon {
     font-size: 2rem;
-    color: var(--accent-dark);
+    color: var(--highlight);
     margin-bottom: 0.8rem;
     transition: transform 0.3s ease;
 }
@@ -347,14 +488,14 @@ footer p {
 .career-card h3 {
     font-size: 1.7rem;
     font-weight: 700;
-    color: var(--secondary);
+    color: var(--primary);
     margin-bottom: 0.6rem;
     letter-spacing: 0.3px;
 }
 
 .career-card p {
     font-size: 0.95rem;
-    color: var(--text);
+    color: var(--text-secondary);
     margin-bottom: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -368,10 +509,10 @@ footer p {
 }
 
 .modal-content {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(248, 245, 240, 0.2);
     backdrop-filter: blur(15px);
     border-radius: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--secondary);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
     animation: modalFadeIn 0.5s ease;
 }
@@ -382,7 +523,7 @@ footer p {
 }
 
 .modal-header {
-    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    background: var(--primary);
     color: var(--background);
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
@@ -401,7 +542,7 @@ footer p {
 .modal-body h3 {
     font-size: 2.2rem;
     font-weight: 700;
-    color: var(--secondary);
+    color: var(--primary);
     margin-bottom: 1.5rem;
 }
 
@@ -415,7 +556,7 @@ footer p {
 
 .modal-body p {
     font-size: 1.2rem;
-    color: var(--text);
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
 
@@ -426,12 +567,12 @@ footer p {
 
 .modal-body li {
     font-size: 1.2rem;
-    color: var(--text);
+    color: var(--text-primary);
     margin-bottom: 0.8rem;
 }
 
 .modal-divider {
-    border-top: 1px solid rgba(242, 140, 56, 0.3);
+    border-top: 1px solid var(--secondary);
     margin: 1.5rem 0;
 }
 
@@ -453,52 +594,16 @@ footer p {
 }
 
 .resource-link:hover {
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    color: var(--background);
+    background: var(--highlight);
+    color: var(--text-primary);
     text-decoration: none;
     transform: translateY(-2px);
 }
 
 .resource-link i {
-    color: var(--accent-dark);
+    color: var(--highlight);
     margin-right: 0.6rem;
     font-size: 1.1rem;
-}
-
-.modal-footer {
-    border-top: none;
-    padding: 1.5rem 3rem;
-}
-
-/* Results Page */
-.card {
-    border: none;
-    border-radius: 25px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-    padding: 5rem;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    text-align: center;
-    animation: fadeIn 1.2s ease;
-}
-
-.card h2 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--secondary);
-    margin-bottom: 2rem;
-}
-
-.career-result {
-    font-size: 2.8rem;
-    color: var(--primary);
-    font-weight: 600;
-    margin-bottom: 2rem;
-}
-
-.card .lead {
-    font-size: 1.4rem;
-    color: var(--text);
 }
 
 /* Responsive Design */
@@ -510,7 +615,7 @@ footer p {
 
     .navbar {
         padding: 0.4rem 0.8rem;
-        height: 20vh; /* Maintain 20vh */
+        height: 20vh;
     }
 
     .navbar-brand {
@@ -546,12 +651,32 @@ footer p {
     .careers-section {
         padding: 4rem 0;
     }
+
+    .resources-list .list-group-item {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .resources-list .list-group-item i {
+        font-size: 1rem;
+    }
+
+    .resources-list .resource-description {
+        font-size: 0.85rem;
+        margin-left: 1.5rem;
+    }
+
+    .pretty-table thead th,
+    .pretty-table td {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
 }
 
 @media (max-width: 576px) {
     .navbar {
         padding: 0.3rem 0.6rem;
-        height: 20vh; /* Maintain 20vh */
+        height: 20vh;
     }
 
     .navbar-brand {

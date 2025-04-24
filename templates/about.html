@@ -8,73 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <style>
-        /* Custom Table Styles */
-        .pretty-table-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-
-        .pretty-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .pretty-table thead th {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            color: var(--background);
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 1.2rem;
-            text-align: left;
-            border-bottom: 2px solid var(--primary-dark);
-        }
-
-        .pretty-table tbody tr {
-            transition: all 0.3s ease;
-        }
-
-        .pretty-table tbody tr:nth-child(even) {
-            background: rgba(245, 245, 245, 0.5);
-        }
-
-        .pretty-table tbody tr:hover {
-            background: var(--primary-light);
-            transform: scale(1.01);
-        }
-
-        .pretty-table td {
-            padding: 1rem;
-            font-size: 1rem;
-            color: var(--text);
-            border-bottom: 1px solid var(--primary-light);
-        }
-
-        .pretty-table th:first-child,
-        .pretty-table td:first-child {
-            border-top-left-radius: 15px;
-            border-bottom-left-radius: 15px;
-        }
-
-        .pretty-table th:last-child,
-        .pretty-table td:last-child {
-            border-top-right-radius: 15px;
-            border-bottom-right-radius: 15px;
-        }
-
-        @media (max-width: 768px) {
-            .pretty-table thead th,
-            .pretty-table td {
-                font-size: 0.9rem;
-                padding: 0.8rem;
-            }
-        }
-    </style>
 </head>
 <body>
     {% include 'navbar.html' %}
@@ -114,113 +47,92 @@
         <section class="mb-5">
             <h2>Dataset Source and Features</h2>
             <p>
-                The Career Navigator uses a synthetic dataset, <code>icn_dataset_30k.csv</code>, sourced from Kaggle. This dataset contains 30,000 records simulating student profiles and their corresponding career outcomes. The features, listed below, capture a wide range of attributes to ensure accurate career predictions. The dataset is preprocessed using StandardScaler to normalize numerical features before training the Random Forest model.
-            </p>
-            <p>
-                <strong>Source:</strong> <a href="https://www.kaggle.com/datasets" target="_blank">Kaggle - Synthetic Career Dataset</a>
+                The Career Navigator uses a combined dataset, <code>icn_dataset.csv</code>, which integrates data collected from multiple sources, including student surveys, publicly available datasets from Kaggle, and synthetically generated data. The final dataset contains 30,000 records simulating student profiles and their corresponding career outcomes. The features, listed below, capture a wide range of attributes to ensure accurate career predictions. Before training the Random Forest model, the dataset undergoes preprocessing using <code>StandardScaler</code> to normalize numerical features.
             </p>
             <div class="pretty-table-container table-responsive">
                 <table class="pretty-table">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Description</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Age</td>
-                        <td>User's age (15-70)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Education Level</td>
-                        <td>Highest education level (Grade 10, Grade 11, Grade 12, UG, PG)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>CGPA</td>
-                        <td>Cumulative Grade Point Average (0.0-10.0)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Math Score</td>
-                        <td>Math performance score (0-100)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Physics Score</td>
-                        <td>Physics performance score (0-100)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Biology Score</td>
-                        <td>Biology performance score (0-100)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>History Score</td>
-                        <td>History performance score (0-100)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Openness</td>
-                        <td>Personality trait: openness to new experiences (1-10)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Conscientiousness</td>
-                        <td>Personality trait: organization and dependability (1-10)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Extraversion</td>
-                        <td>Personality trait: outgoing and social nature (1-10)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Agreeableness</td>
-                        <td>Personality trait: compassion and cooperation (1-10)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Neuroticism</td>
-                        <td>Personality trait: emotional instability (1-10)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Weekly Self-Study Hours</td>
-                        <td>Hours spent on self-study per week (0-100)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Extracurricular Activities</td>
-                        <td>Participation in extracurricular activities (0: No, 1: Yes)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Hobbies</td>
-                        <td>User-selected hobbies (e.g., coding, cooking, dance)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Interests</td>
-                        <td>Primary interest area (arts, business, healthcare, technology)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Budget</td>
-                        <td>Education/training budget in lakhs INR (1-20)</td>
-                        
-                    </tr>
-                    <tr>
-                        <td>Career Demand Score</td>
-                        <td>Perceived job market demand (1-10)</td>
-                        
-                    </tr>
-                </tbody>
-            </table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age</td>
+                            <td>User's age (15-70)</td>
+                        </tr>
+                        <tr>
+                            <td>Education Level</td>
+                            <td>Highest education level (Grade 10, Grade 11, Grade 12, UG, PG)</td>
+                        </tr>
+                        <tr>
+                            <td>CGPA</td>
+                            <td>Cumulative Grade Point Average (0.0-10.0)</td>
+                        </tr>
+                        <tr>
+                            <td>Math Score</td>
+                            <td>Math performance score (0-100)</td>
+                        </tr>
+                        <tr>
+                            <td>Physics Score</td>
+                            <td>Physics performance score (0-100)</td>
+                        </tr>
+                        <tr>
+                            <td>Biology Score</td>
+                            <td>Biology performance score (0-100)</td>
+                        </tr>
+                        <tr>
+                            <td>History Score</td>
+                            <td>History performance score (0-100)</td>
+                        </tr>
+                        <tr>
+                            <td>Openness</td>
+                            <td>Personality trait: openness to new experiences (1-10)</td>
+                        </tr>
+                        <tr>
+                            <td>Conscientiousness</td>
+                            <td>Personality trait: organization and dependability (1-10)</td>
+                        </tr>
+                        <tr>
+                            <td>Extraversion</td>
+                            <td>Personality trait: outgoing and social nature (1-10)</td>
+                        </tr>
+                        <tr>
+                            <td>Agreeableness</td>
+                            <td>Personality trait: compassion and cooperation (1-10)</td>
+                        </tr>
+                        <tr>
+                            <td>Neuroticism</td>
+                            <td>Personality trait: emotional instability (1-10)</td>
+                        </tr>
+                        <tr>
+                            <td>Weekly Self-Study Hours</td>
+                            <td>Hours spent on self-study per week (0-100)</td>
+                        </tr>
+                        <tr>
+                            <td>Extracurricular Activities</td>
+                            <td>Participation in extracurricular activities (0: No, 1: Yes)</td>
+                        </tr>
+                        <tr>
+                            <td>Hobbies</td>
+                            <td>User-selected hobbies (e.g., coding, cooking, dance)</td>
+                        </tr>
+                        <tr>
+                            <td>Interests</td>
+                            <td>Primary interest area (arts, business, healthcare, technology)</td>
+                        </tr>
+                        <tr>
+                            <td>Budget</td>
+                            <td>Education/training budget in lakhs INR (1-20)</td>
+                        </tr>
+                        <tr>
+                            <td>Career Demand Score</td>
+                            <td>Perceived job market demand (1-10)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
         <!-- GitHub URL -->
@@ -230,7 +142,7 @@
                 The source code for the Career Navigator project is available on GitHub. Explore the repository to view the code, contribute, or report issues.
             </p>
             <p>
-                <strong>GitHub URL:</strong> <a href="https://github.com/username/career-navigator" target="_blank">https://github.com/username/career-navigator</a>
+                <strong>GitHub URL:</strong> <a href="https://github.com/akshithakotte/Career_Navigator-Project" target="_blank">GitHub Link</a>
             </p>
         </section>
     </div>
