@@ -671,6 +671,7 @@ footer p {
         font-size: 0.9rem;
         padding: 0.8rem;
     }
+<<<<<<< HEAD
 }
 
 .active {
@@ -689,6 +690,8 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+=======
+>>>>>>> 0e8537cd8a49e08a4f3f167897bf37064eb85863
 }
 
 @media (max-width: 576px) {

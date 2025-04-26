@@ -28,7 +28,7 @@ def train_model(X_train, X_test, y_train, y_test, scaler, label_encoders, featur
 if __name__ == "__main__":
     # Load preprocessed data
     from preprocess import preprocess_data
-    filepath = 'data\icn_dataset_20k.csv'
+    filepath = 'data\icn_dataset_30k.csv'
     X_train, X_test, y_train, y_test, scaler, label_encoders, feature_columns = preprocess_data(filepath)
 
     # Train the model
